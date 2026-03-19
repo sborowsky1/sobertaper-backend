@@ -20,8 +20,11 @@ app.use(
 );
 app.use(express.json());
 
-// Static APK hosting
-app.use("/downloads", express.static(path.join(__dirname, "public", "downloads")));
+app.use(
+  "/downloads",
+  express.static(path.join(process.cwd(), "src", "public", "downloads"))
+);
+
 
 app.use("/api/health", healthRoute);
 app.use("/api/releases", releasesRoute);

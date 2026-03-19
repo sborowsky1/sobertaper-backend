@@ -17,11 +17,13 @@ router.get("/manifest", (_req: Request, res: Response) => {
     const manifest = readManifest();
     const publicBaseUrl = process.env.PUBLIC_BASE_URL || "http://localhost:4000";
 
+    const downloadUrl = manifest.downloadPath
+      ? `${publicBaseUrl}${manifest.downloadPath}`
+      : "";
+
     res.json({
       ...manifest,
-      downloadUrl: manifest.downloadPath
-        ? `${publicBaseUrl}${manifest.downloadPath}`
-        : "",
+      downloadUrl,
     });
   } catch (error) {
     console.error("Failed to read manifest.json:", error);
@@ -33,6 +35,7 @@ router.post("/request", (_req: Request, res: Response) => {
   try {
     const manifest = readManifest();
     const publicBaseUrl = process.env.PUBLIC_BASE_URL || "http://localhost:4000";
+
     const downloadUrl = manifest.downloadPath
       ? `${publicBaseUrl}${manifest.downloadPath}`
       : "";
