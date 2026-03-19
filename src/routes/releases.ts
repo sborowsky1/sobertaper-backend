@@ -8,7 +8,7 @@ console.log("releases route loaded");
 
 router.get("/latest", (_req: Request, res: Response) => {
   try {
-    const releasesPath = path.join(__dirname, "..", "data", "releases.json");
+    const releasesPath = path.join(process.cwd(), "src", "data", "releases.json");
     const releasesRaw = fs.readFileSync(releasesPath, "utf8");
     const release = JSON.parse(releasesRaw);
 

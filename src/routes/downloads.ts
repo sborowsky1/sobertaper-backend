@@ -7,7 +7,7 @@ const router = Router();
 console.log("downloads route loaded");
 
 function readManifest() {
-  const manifestPath = path.join(__dirname, "..", "data", "manifest.json");
+  const manifestPath = path.join(process.cwd(), "src", "data", "manifest.json");
   const manifestRaw = fs.readFileSync(manifestPath, "utf8");
   return JSON.parse(manifestRaw);
 }
