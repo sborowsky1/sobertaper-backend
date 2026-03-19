@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0-beta",
+  "channel": "beta",
+  "platform": "android",
+  "minAndroid": "10+",
+  "notes": [
+    "Simulation overview improvements",
+    "Updated simulated terminology",
+    "Disclaimer readability fixes"
+  ]
+}
