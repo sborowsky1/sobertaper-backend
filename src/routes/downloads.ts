@@ -86,10 +86,7 @@ router.post("/request", (req: Request, res: Response) => {
         versionCode: manifest.versionCode,
         platform: manifest.platform,
         userAgent: req.get("user-agent") || "",
-        ip:
-          req.headers["x-forwarded-for"] ||
-          req.socket.remoteAddress ||
-          "",
+        ip: req.ip,
       })
     );
 
