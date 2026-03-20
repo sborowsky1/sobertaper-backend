@@ -31,6 +31,8 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 app.use(
   "/downloads",
   express.static(path.join(process.cwd(), "src", "public", "downloads"))
